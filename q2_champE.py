@@ -1,9 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from q1_potentiel import calcul_potentiel
-from equipe_01_main import tube
 from matplotlib.patches import Rectangle
-from scipy.interpolate import RectBivariateSpline
 
 # Par Maya Déry et Mia Croft-Pelletier
 
@@ -64,15 +61,3 @@ def afficher_champE(potential, Ex, Ey, dynodes, grid_res=0.1e-3):
     plt.ylabel('Position en y (m)')
     plt.grid(alpha=0.3)
     plt.show()
-
-# r = 0.1e-3
-# # Éxecution principale
-# # # Calculer le potentiel (en utilisant la fonction de la question 1)
-# potentiel = calcul_potentiel(grid_res=r)
-
-# # # Calculer le champ électrique
-# Ex, Ey = calcul_champE(potentiel, grid_res=r)
-
-# # # Visualiser le tout
-# grid, dynodes = tube(N=4, a=3e-3, b=2e-3, c=4e-3, d=2e-3, e=0.2e-3, f=6e-3, grid_res=r)
-# afficher_champE(potentiel, Ex, Ey, dynodes)

@@ -83,23 +83,3 @@ def afficher_potentiel(potentiel, grid_res=0.1e-3):
     plt.xlabel('Position en x [m]')
     plt.ylabel('Position en y [m]')
     plt.show()
-
-# grid_res = 0.1e-3
-# # Appel pour calculer et visualiser le potentiel
-# potentiel = calcul_potentiel()
-# # afficher_potentiel(potentiel)
-# width = potentiel.shape[1] * grid_res  # Should be ~6 mm (0.006 m)
-# height = potentiel.shape[0] * grid_res  # Should be ~20 mm (0.02 m)
-
-# print(f"Grid size: {potentiel.shape[1]} x {potentiel.shape[0]}")
-# print(f"Physical size: {width:.4f} m (width) x {height:.4f} m (height)")
-
-# Ey, Ex = np.gradient(-potentiel, grid_res, grid_res, edge_order=2)
-# E_magnitude = np.sqrt(Ex**2 + Ey**2)
-
-# # Compare to theoretical max E-field (parallel-plate approximation)
-# d = 0.006  # 6 mm (shortest dimension, assuming strongest field here)
-# E_theoretical_max = 400 / d  # 400V / 0.006m ≈ 66,667 V/m
-
-# print(f"Max E-field: {np.max(E_magnitude):.1f} V/m")
-# print(f"Theoretical max E-field: {E_theoretical_max:.1f} V/m")

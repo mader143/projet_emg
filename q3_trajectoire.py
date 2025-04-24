@@ -1,8 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from equipe_01_main import tube
-from q1_potentiel import calcul_potentiel
-from q2_champE import calcul_champE
 from matplotlib.patches import Rectangle
 
 # Par Maya Déry et Mia Croft-Pelletier
@@ -13,7 +10,7 @@ from matplotlib.patches import Rectangle
 q_e = -1.602e-19  # Charge d'un électron (C)
 m_e = 9.109e-31    # Masse d'un électron (kg)
 
-def calcul_trajectoire(Ex, Ey, grid_res=0.1e-3, dt=1e-12, steps=10000,
+def calcul_trajectoire(Ex, Ey, dynodes, grid_res=0.1e-3, dt=1e-12, steps=10000,
                                 x0=0, y0=7e-3, vx0=0, vy0=0):
     """
     Simulation de la trajectoire d'un électron à l'aide de la méthode d'Euler avec une vérification des limites du tube.
@@ -86,7 +83,7 @@ def calcul_trajectoire(Ex, Ey, grid_res=0.1e-3, dt=1e-12, steps=10000,
 
     return np.array(trajectoire)
 
-def afficher_trajectoire(trajectoire, potentiel, Ex, Ey, grid_res=0.1e-3):
+def afficher_trajectoire(trajectoire, potentiel, dynodes, Ex, Ey, grid_res=0.1e-3):
     plt.figure(figsize=(10, 6))
     extent = [0, potentiel.shape[1] * grid_res,
               0, potentiel.shape[0] * grid_res]
@@ -132,29 +129,3 @@ def afficher_trajectoire(trajectoire, potentiel, Ex, Ey, grid_res=0.1e-3):
     plt.title('Champ électrique dans le tube photomultiplicateur\n(1 mm de flèche = 10000 V/m)')
     plt.grid(alpha=0.3)
     plt.show()
-
-# Exécution permettant le calcul et l'affichage de la trajectoire de l'électron
-# potentiel = calcul_potentiel()
-# grid, dynodes = tube()
-# Ex, Ey = calcul_champE(potentiel)
-# trajectoire = calcul_trajectoire(Ex, Ey)
-# afficher_trajectoire(trajectoire, potentiel, Ex, Ey)
-
-#QUESTION 3C
-#Exécution permettant d'afficher la trajectoire d'un électron, avec les paramètres du tube ajustés afin que l'électron percute chacune des dynodes
-potentiel = calcul_potentiel(a=2e-3, b=4e-3, c=8e-3, d=4e-3, e=0.4e-3, f=14e-3, grid_res=0.1e-3)
-grid, dynodes = tube(a=2e-3, b=4e-3, c=8e-3, d=4e-3, e=0.4e-3, f=14e-3, grid_res=0.1e-3)
-Ex, Ey = calcul_champE(potentiel)
-Emag = np.sqrt(Ex**2 + Ey**2)
-print(F'Max field : {np.max(Emag)}')
-trajectoire = calcul_trajectoire(Ex, Ey)
-afficher_trajectoire(trajectoire, potentiel, Ex, Ey)
-
-# QUESTION 3D (BONUS)
-#Exécution permettant d'afficher la trajectoire d'un électron, avec les paramètres du tube ajustés afin que l'électron percute chacune des dynodes
-# Avec 12 dynodes
-# potentiel = calcul_potentiel(N=12, a=2e-3, b=2e-3, c=5e-3, d=1e-3, e=0.4e-3, f=6e-3)
-# grid, dynodes = tube(N=12, a=2e-3, b=2e-3, c=5e-3, d=1e-3, e=0.4e-3, f=6e-3)
-# Ex, Ey = calcul_champE(potentiel)
-# trajectoire = calcul_trajectoire(Ex, Ey)
-# afficher_trajectoire(trajectoire, potentiel, Ex, Ey)
