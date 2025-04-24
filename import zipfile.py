@@ -1,7 +1,7 @@
 import zipfile
 
 # List of files to include
-files_to_zip = ["equipe_01_main.py", "q1_potentiel.py", "q2_champE.py", "3_trajectoire.py", "devoir_numerique.pdf"]
+files_to_zip = ["equipe_01_main.py", "q1_potentiel.py", "q2_champE.py", "q3_trajectoire.py", "fonctions_communes.py", "devoir_numerique.pdf"]
 
 # Output zip file name
 zip_filename = "devoir_num.zip"

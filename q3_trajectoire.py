@@ -11,7 +11,7 @@ q_e = -1.602e-19  # Charge d'un électron (C)
 m_e = 9.109e-31    # Masse d'un électron (kg)
 
 def calcul_trajectoire(Ex, Ey, dynodes, grid_res=0.1e-3, dt=1e-12, steps=10000,
-                                x0=0, y0=7e-3, vx0=0, vy0=0):
+                                x0=0, y0=3e-3, vx0=0, vy0=0):
     """
     Simulation de la trajectoire d'un électron à l'aide de la méthode d'Euler avec une vérification des limites du tube.
     S'arrête lorsque l'électron quitte le tube.

@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from equipe_01_main import tube
+from fonctions_communes import tube
 
 # Par Maya Déry et Mia Croft-Pelletier
 
